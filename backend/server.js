@@ -29,6 +29,11 @@ app.use("/api/coupons", couponRoutes);
 app.use("/api/payments", paymentRoutes);
 app.use("/api/analytics", analyticsRoutes);
 
+app.get('/health', (req, res) => {
+  console.log('Health check ping received'); 
+  res.status(200).send('Server is alive!');
+});
+
 if (process.env.NODE_ENV === "production") {
 	app.use(express.static(path.join(__dirname, "/frontend/dist")));
 
