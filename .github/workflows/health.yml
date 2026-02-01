@@ -2,7 +2,7 @@ name: Render Health Check
 
 on:
   schedule:
-    - cron: "0 * * * *"   # every 1 hour (safe)
+    - cron: "*/14 * * * *"   # every 1 hour (safe)
   workflow_dispatch:      # manual run button
 
 jobs:
