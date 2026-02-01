@@ -1,0 +1,14 @@
+name: Render Health Check
+
+on:
+  schedule:
+    - cron: "0 * * * *"   # every 1 hour (safe)
+  workflow_dispatch:      # manual run button
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Render /health endpoint
+        run: |
+          curl -s https://mern-ecommerce-g0fe.onrender.com/health
